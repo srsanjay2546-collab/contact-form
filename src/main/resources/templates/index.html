@@ -2,47 +2,21 @@
 <html>
 <head>
     <title>Contact Form</title>
-
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
     <section class="hero">
-        <h1>Welcome to Our Website</h1>
-        <p>Spring Boot Contact Form</p>
+        <h1>Contact Us</h1>
+        <p>Any questions or feedback? Just write us a message!</p>
     </section>
-
     <div class="container">
-
-        <h2>Contact Us</h2>
-
+        <h2>Feedback Form</h2>
         <form action="/contact" method="post">
-
-            <input
-                type="text"
-                name="name"
-                placeholder="Enter your name"
-                required>
-
-            <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                required>
-
-            <textarea
-                name="message"
-                rows="6"
-                placeholder="Enter your message"
-                required></textarea>
-
-            <button type="submit">
-                Submit
-            </button>
-
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <textarea name="message" rows="6" placeholder="Enter your message" required></textarea>
+            <button type="submit">Submit</button>
         </form>
-
     </div>
-
 </body>
 </html>
