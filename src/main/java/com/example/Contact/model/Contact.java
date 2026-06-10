@@ -1,11 +1,37 @@
 package com.example.Contact.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "contacts")
 public class Contact {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "message")
     private String message;
 
     public Contact(){
+    }
+    
+    public Contact(String name, String email, String message){
+        this.name = name;
+        this.email = email;
+        this.message = message;
+    }
+
+    public Long getId(){ 
+        return id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     public String getName(){
@@ -30,5 +56,11 @@ public class Contact {
 
     public void setMessage(String message){
         this.message=message;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{id=" + id + ", name=" + name +
+               ", email=" + email + ", message=" + message + "}";
     }
 }

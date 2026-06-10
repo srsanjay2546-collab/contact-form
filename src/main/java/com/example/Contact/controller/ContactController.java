@@ -1,10 +1,18 @@
 package com.example.Contact.controller;
 
+import com.example.Contact.ContactRepository;
+import com.example.Contact.model.Contact;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class ContactController {
+
+    @Autowired
+    private ContactRepository contactRepository;
 
     @GetMapping("/")
     public String home() {
@@ -18,10 +26,16 @@ public class ContactController {
             @RequestParam String email,
             @RequestParam String message) {
 
-        System.out.println("Name: " + name +
-                ", Email: " + email +
-                ", Message: " + message);
+        Contact contact = new Contact(name, email, message);
+        contactRepository.save(contact);
+        System.out.println("Saved to DB: " + contact);
 
-        return "Form submitted successfully!";
+        return "Form submitted and saved to database!";
+    }
+
+    @GetMapping("/contacts")
+    @ResponseBody
+    public List<Contact> getAllContacts() {
+        return contactRepository.findAll();
     }
 }
