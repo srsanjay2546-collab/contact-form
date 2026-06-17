@@ -19,6 +19,16 @@ public class ContactController {
         return "index";
     }
 
+    @GetMapping("/contact")
+    public String contactRedirect() {
+        return "index";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "redirect:/admin.html";
+    }
+
     @PostMapping("/contact")
     @ResponseBody
     public String handleContact(
