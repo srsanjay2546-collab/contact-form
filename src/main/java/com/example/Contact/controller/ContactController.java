@@ -19,6 +19,11 @@ public class ContactController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
     @GetMapping("/contact")
     public String contactRedirect() {
         return "index";
@@ -26,7 +31,7 @@ public class ContactController {
 
     @GetMapping("/admin")
     public String admin() {
-        return "redirect:/admin.html";
+        return "redirect:/contacts.html";
     }
 
     @PostMapping("/contact")
